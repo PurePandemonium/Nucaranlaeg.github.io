@@ -167,7 +167,9 @@ class ActionQueue extends Array {
 		
 		if (isNaN(+actionID) // not queue reference
 		    && !"UDLRI<=".includes(actionID) // not non-rune action
-		    && (!"NSP".includes(actionID[0]) || (isNaN(+actionID[1]) && isNaN(actionID.toString().substring(1,3))))) // not rune action or pathfinding
+		    && (!"NSP".includes(actionID[0]) 
+				|| actionID == "P" 
+				|| (isNaN(+actionID[1]) && isNaN(actionID.toString().substring(1,3)) )) ) // not rune action or pathfinding
 		{
 			return;
 		}
